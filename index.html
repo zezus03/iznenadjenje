@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Imam pitanje za tebe... 💌" />
+    <meta property="og:description" content="Klikni ovde da vidiš iznenađenje!" />
+    <meta property="og:image" content="LINK_DO_NEKE_SLIKE.jpg" />
+    <title>Jedno pitanje...</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe6e6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #ff4d4d;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .gif-container img {
+            width: 200px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            position: relative;
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 1.2rem;
+            padding: 10px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        #yesBtn {
+            background-color: #ff4d4d;
+            color: white;
+            font-weight: bold;
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.1);
+            background-color: #ff3333;
+        }
+
+        #noBtn {
+            background-color: #e0e0e0;
+            color: #333;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="question">Pobratimeeeee? 🌹</h1>
+        
+        <div class="gif-container">
+            <img id="mainImage" src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3MzJxMzE3bDBrYmU0ZXk5ZWUzcnhqN3I5cG9yNXR4MTBqejk5cnoyMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/26FLdmIp6wJr91JAI/giphy.gif" alt="Cute Bear">
+        </div>
+
+        <div class="buttons">
+            <button id="yesBtn">DA!</button>
+            <button id="noBtn">Ne</button>
+        </div>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const question = document.getElementById('question');
+        const mainImage = document.getElementById('mainImage');
+        const container = document.querySelector('.container');
+
+        function moveButton() {
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+
+            const randomX = Math.random() * (screenWidth - 100);
+            const randomY = Math.random() * (screenHeight - 100);
+
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        }
+
+        noBtn.addEventListener('mouseover', moveButton);
+        noBtn.addEventListener('click', moveButton);
+
+        yesBtn.addEventListener('click', () => {
+            question.innerHTML = "To zmijo, Volim te! ❤️";
+            
+            mainImage.src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDI2bjJ4OWRlMWt2NjVkZ2RrOTV3YXNwaDhicmRzeXA2eWo0MXcyMyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/KmxmoHUGPDjfQXqGgv/giphy.gif";
+            
+            yesBtn.style.display = 'none';
+            noBtn.style.display = 'none';
+            
+            document.body.style.backgroundColor = "#ffcccc";
+        });
+    </script>
+</body>
+</html>
